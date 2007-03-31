@@ -13,24 +13,24 @@ Release:	1
 # same as perl
 License:	GPL v1+ or Artistic
 Group:		Development/Languages/Perl
-Source0:	http://www.cpan.org/modules/by-authors/id/E/EV/EVDB/HTTP-Async-%{version}.tar.gz
+Source0:	http://www.cpan.org/modules/by-authors/id/E/EV/EVDB/%{pdir}-%{pnam}-%{version}.tar.gz
 # Source0-md5:	d18d2c705ea8a2b1e3d40cb65ee73fbd
-#URL:		http://search.cpan.org/dist/HTTP-Async/
+URL:		http://search.cpan.org/dist/HTTP-Async/
+BuildRequires:	perl-Module-Build
 BuildRequires:	perl-devel >= 1:5.8.0
 BuildRequires:	rpm-perlprov >= 4.1-13
-# generic URL, check or change before uncommenting
 %if %{with tests}
 BuildRequires:	perl(HTTP::Request)
 BuildRequires:	perl(HTTP::Response)
 BuildRequires:	perl(HTTP::Server::Simple::CGI)
 BuildRequires:	perl(HTTP::Status)
 BuildRequires:	perl(LWP::UserAgent)
-BuildRequires:	perl(Module::Build)
 BuildRequires:	perl(Net::HTTP)
 BuildRequires:	perl(Net::HTTP::NB)
-BuildRequires:	perl(Test::HTTP::Server::Simple)
-BuildRequires:	perl(URI)
 BuildRequires:	perl(URI::Escape)
+BuildRequires:	perl-Test-HTTP-Server-Simple
+BuildRequires:	perl-URI
+BuildRequires:	perl-libwww
 %endif
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -60,10 +60,10 @@ czasu zakończenia żądania HTTP i możliwa jest obsługa tylko
 jednego w tym samym czasie. HTTP::Async stara się rozwiązać ten
 problem.
 
-Moduł udostepnia obiekt 'Async', do którego można dodawać
+Moduł udostępnia obiekt 'Async', do którego można dodawać
 żądania HTTP i pobierać je z niego gdy te zostaną zakończone.
 Wysyłanie i odbieranie żądań jest ukryte pod warstwą abstrakcji.
-Po dodaniu żądania jest ono natychmiastowo wysyłane, jeśli jest
+Po dodaniu żądania jest ono natychmiastowo wysyłane, a jeśli jest
 ich zbyt dużo w danym momencie, kolejne wywołania są kolejkowane.
 
 Podczas oczekiwania na odbiór danych kontrola przekazywana jest do
