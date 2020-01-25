@@ -2,7 +2,6 @@
 # Conditional build:
 %bcond_without	tests		# do not perform "make test"
 #
-%include	/usr/lib/rpm/macros.perl
 %define	pdir	HTTP
 %define	pnam	Async
 Summary:	HTTP::Async - process multiple HTTP requests in parallel without blocking
